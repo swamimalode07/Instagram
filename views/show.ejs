@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Details</title>
+    <link rel="stylesheet" href="/details.css">
+</head>
+<body>
+    
+    <div class="post">
+        <h2>Post details</h2>
+        <h3 class="user">@ <%= post.username%></h3>
+        <img src="<%= post.img %>" alt="Post image">
+        <h4 class="caption">Caption: <%=post.caption%></h4>
+        <h4>Likes:<%=post.likes%></h4>
+    </div>
+</body>
+</html>
