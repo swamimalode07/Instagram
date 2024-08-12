@@ -70,15 +70,15 @@ let posts = [
     
 ];
 
-app.get("/home", (req, res) => {
+app.get("/", (req, res) => {
     res.render("index.ejs", { posts });
 });
 
-app.get("/home/new", (req, res) => {
+app.get("/new", (req, res) => {
     res.render("new.ejs");
 });
 
-app.post("/home", upload.single('img'), (req, res) => {
+app.post("/", upload.single('img'), (req, res) => {
     let { username, caption } = req.body;
     let id = uuidv4();
     let img = `/uploads/${req.file.filename}`;
@@ -86,7 +86,7 @@ app.post("/home", upload.single('img'), (req, res) => {
     res.redirect("/home");
 });
 
-app.post("/home/:id/like", (req, res) => {
+app.post("/:id/like", (req, res) => {
     let { id } = req.params;
     let post = posts.find((p) => p.id === id);
     if (post) {
@@ -97,13 +97,13 @@ app.post("/home/:id/like", (req, res) => {
     }
 });
 
-app.get("/home/:id", (req, res) => {
+app.get("/:id", (req, res) => {
     let { id } = req.params;
     let post = posts.find((p) => p.id === id);
     res.render("show.ejs", { post });
 });
 
-app.delete("/home/:id", (req, res) => {
+app.delete("/:id", (req, res) => {
     let { id } = req.params;
     posts = posts.filter((p) => p.id !== id);
     res.redirect("/home");
