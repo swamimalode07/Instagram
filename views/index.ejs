@@ -10,7 +10,7 @@
 
     <h1>Instagram</h1>
     <div class="create">
-        <a href="http://localhost:8080/home/new">
+        <a href="http://localhost:8080/new">
         <button>New Post</button>
     </a>
     </div>
@@ -21,13 +21,13 @@
             <img src="<%=post.img %>" alt="Post one">
             <h2><%=post.caption %></h2>
             <div class="button-container">
-                <form method="post" action="/home/<%= post.id %>/like">
+                <form method="post" action="/<%= post.id %>/like">
                     <button type="submit" class="like-button">&#x2764; <%= post.likes || 0 %></button>
                 </form>
-                <a href="http://localhost:8080/home/<%=post.id%>">
+                <a href="http://localhost:8080/<%=post.id%>">
                     <button>Details</button>
                 </a>
-                <form method="post" action="/home/<%= post.id %>?_method=DELETE">
+                <form method="post" action="/<%= post.id %>?_method=DELETE">
                     <button type="submit" class="delete-button">Delete</button>
                 </form>
             </div>
